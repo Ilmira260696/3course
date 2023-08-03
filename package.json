@@ -1,0 +1,35 @@
+{
+    "name": "3course",
+    "version": "1.0.0",
+    "description": "Создание карточной игры, суть которой заключается в том, что нужно разгадать все пары карт.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "http-server -p 3004",
+        "format": "prettier --write ./",
+        "lint:js": "eslint ./**/*.js",
+        "lint:css": "stylelint ./**/*.css",
+        "lint": "npm run lint:js && npm run lint:css",
+        "prepare":"husky install"
+    },
+    "repository": {
+        "type": "git",
+        "url": "(https://github.com/Ilmira260696/3course.git)"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "http-server": "^14.1.1",
+        "lodash": "^4.17.21"
+    },
+    "devDependencies": {
+        "eslint": "^8.46.0",
+        "eslint-config-prettier": "^8.9.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "husky": "^8.0.3",
+        "prettier": "^3.0.0",
+        "stylelint": "^15.10.2",
+        "stylelint-config-standard": "^34.0.0",
+        "stylelint-prettier": "^4.0.2"
+    }
+}
