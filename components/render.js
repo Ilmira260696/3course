@@ -20,5 +20,4 @@ export function renderGame(level, appEl) {
     appEl.innerHTML = appHtml
 }
 
-// <div class="top__content">
-// <h3 class="top__content_title">${level.value} уровень сложности </h3>
+
