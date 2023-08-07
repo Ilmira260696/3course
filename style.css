@@ -146,15 +146,16 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 .card-game-timer {
     display: flex;
-    justify-content: space-between;  
+    justify-content: space-between;
 }
+
 .approach {
     padding: 48px;
     display: grid;
     grid-template-columns: repeat(6, auto);
     justify-content: center;
     gap: 15px;
-
 }

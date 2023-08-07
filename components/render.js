@@ -4,7 +4,7 @@ export function renderGame(level, appEl) {
     let levelGame = level.value
     const backSide = []
     for (let i = 0; i < levelGame; i++) {
-        backSide.push(`<img class='card-game-back' src='./img/рубашка.png' alt='img'>
+        backSide.push(`<img class='card-game-back' src='../static/img/рубашка.png' alt='img'>
         `)
     }
     console.log(backSide)
@@ -28,8 +28,13 @@ export function renderGame(level, appEl) {
     const reverseCards = document.querySelectorAll('.card-game-back')
     for (const reverseCard of reverseCards) {
         reverseCard.addEventListener('click', () => {
-            let sortCardArray = cards.sort(() => Math.random()- 0.5).slice(0, levelGame/2)
-            sortCardArray = sortCardArray.concat(sortCardArray).sort(() => Math.random() - 0.5).join('')
+            let sortCardArray = cards
+                .sort(() => Math.random() - 0.5)
+                .slice(0, levelGame / 2)
+            sortCardArray = sortCardArray
+                .concat(sortCardArray)
+                .sort(() => Math.random() - 0.5)
+                .join('')
             const approach = document.getElementById('approach')
             approach.innerHTML = `${sortCardArray}`
             setTimeout(() => {
