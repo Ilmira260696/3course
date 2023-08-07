@@ -1,6 +1,6 @@
 export const cards = [
-    `<img class="game-cards" src="../static/img.туз черви.png">`,
-    `<img class="game-cards" src="../static/img.png">`,
+    `<img class="game-cards" src="../static/img/туз черви.png">`,
+    `<img class="game-cards" src="../static/img/туз пики.png">`,
     `<img class="game-cards" src="../static/img/туз крести.png">`,
     `<img class="game-cards" src="../static/img/туз бубны.png">`,
 
@@ -44,3 +44,10 @@ export const cards = [
     `<img class="game-cards" src="../static/img/6 крести.png">`,
     `<img class="game-cards" src="../static/img/6 бубны.png">`,
 ]
+const coverCard = []
+for (let index = 0; index < 36; index++) {
+    coverCard.push(
+        `<img src="./static/img/рубашка.png" class="cover-card" data-index="${index}">`,
+    )
+}
+export { coverCard }

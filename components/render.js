@@ -1,45 +1,52 @@
 import { cards } from './cards.js'
+import { coverCard } from './cards.js'
+import { isPlaying } from './isPlaying.js'
 
-export function renderGame(level, appEl) {
+export function renderGame(level) {
     let levelGame = level.value
-    const backSide = []
-    for (let i = 0; i < levelGame; i++) {
-        backSide.push(`<img class='card-game-back' src='../static/img/рубашка.png' alt='img'>
-        `)
+    let sortCardArray = cards
+        .sort(() => Math.random() - 0.5)
+        .slice(0, levelGame / 2)
+    sortCardArray = sortCardArray
+        .concat(sortCardArray)
+        .sort(() => Math.random() - 0.5)
+    let sortCoverCard = coverCard.slice(0, levelGame)
+    let backSide = []
+    backSide = sortCoverCard
+    isPlaying(sortCardArray)
+    let clickable = true
+    let firstCard = null
+    let secondCard = null
+    function showCard() {
+        isPlaying(backSide)
+        const approach = document.getElementById('approach')
+        let itemCards = approach.children
+        for (const itemCard of itemCards) {
+            itemCard.addEventListener('click', () => {
+                let cardIndex = itemCard.dataset.index
+                if (clickable) {
+                    firstCard = cardIndex
+                    backSide[cardIndex] = sortCardArray[cardIndex]
+                    isPlaying(backSide)
+                    showCard()
+                } else {
+                    secondCard = cardIndex
+                    compareCard(firstCard, secondCard)
+                    isPlaying(backSide)
+                    showCard()
+                }
+                clickable = !clickable
+            })
+        }
     }
-    console.log(backSide)
-
-    const appHtml = `
-<div class="card-game">
-<header class="card-game-timer"> 
-    <div class="top">
-    <div class="duration-time">   
-       <p class="duration">min</p>
-       <p class="duration">sek</p>
-    </div>
-    <time class="time">00.00</time> 
-    </div>
-
-       <button class="button-two" id="submit-button" type="submit" >Начать заново</button>
-</header>
-<div class="approach center" id="approach">${backSide.join('')}</div>      
-</div> `
-    appEl.innerHTML = appHtml
-    const reverseCards = document.querySelectorAll('.card-game-back')
-    for (const reverseCard of reverseCards) {
-        reverseCard.addEventListener('click', () => {
-            let sortCardArray = cards
-                .sort(() => Math.random() - 0.5)
-                .slice(0, levelGame / 2)
-            sortCardArray = sortCardArray
-                .concat(sortCardArray)
-                .sort(() => Math.random() - 0.5)
-                .join('')
-            const approach = document.getElementById('approach')
-            approach.innerHTML = `${sortCardArray}`
-            setTimeout(() => {
-                renderGame(level, appEl)
-            }, 5000)
-        })
+    setTimeout(showCard, 5000)
+    function compareCard(firstCard, secondCard) {
+        if (sortCardArray[firstCard] === sortCardArray[secondCard]) {
+            backSide[secondCard] = sortCardArray[secondCard]
+            alert('Вы выиграли!')
+        } else {
+            backSide = sortCoverCard
+            alert('Вы проиграли')
+        }
     }
 }

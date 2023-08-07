@@ -1,3 +1,4 @@
+import './style.css'
 import { renderGame } from './components/render.js'
 function gameComplexity() {
     let appEl = document.getElementById('app')
