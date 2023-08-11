@@ -1,4 +1,4 @@
-export function isPlaying(backSide) {
+export function isPlaying(backSide:string[]) {
     let appEl = document.getElementById('app')
     const appHtml = `<div class="card-game">
     <header class="card-game-timer">
@@ -13,5 +13,7 @@ export function isPlaying(backSide) {
 </header>
 <div class="approach center" id="approach">${backSide.join('')}</div>      
 </div> `
+if(appEl){
     appEl.innerHTML = appHtml
+}
 }

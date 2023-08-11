@@ -58,7 +58,7 @@ body {
     display: none;
 }
 
-.radio-toolbar-radio:checked + label {
+.radio-toolbar-radio:checked+label {
     background-color: #004980;
     border: 3px solid #004980;
     color: #c4e8f0;
@@ -158,4 +158,45 @@ body {
     grid-template-columns: repeat(6, auto);
     justify-content: center;
     gap: 15px;
+}
+
+.modal {
+    position: absolute;
+    padding-top: 158px;
+}
+
+.results-title {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 48px;
+    color: #004980;
+}
+
+.results {
+    background-color: #c2f5ff;
+    width: 480px;
+    height: 459px;
+    border-radius: 12px;
+    display: flex;
+    align-content: center;
+    flex-flow: column wrap;
+    align-items: center;
+    padding-top: 26px;
+}
+
+.results-time {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    color: #000;
+    margin-top: 28px;
+    margin-bottom: 10px;
+}
+
+.results-time-timer {
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 72px;
+    color: #000;
+    margin-bottom: 40px;
 }
