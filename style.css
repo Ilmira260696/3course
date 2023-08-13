@@ -1,6 +1,6 @@
 @font-face {
     font-family: StratosSkyeng;
-    src: url('../3course/static/fonts/stratosskyengweb-regular.woff');
+    src: url('./static/fonts/stratosskyengweb-regular.woff');
 }
 
 * {
@@ -58,7 +58,7 @@ body {
     display: none;
 }
 
-.radio-toolbar-radio:checked+label {
+.radio-toolbar-radio:checked + label {
     background-color: #004980;
     border: 3px solid #004980;
     color: #c4e8f0;
@@ -162,7 +162,7 @@ body {
 
 .modal {
     position: absolute;
-    padding-top: 158px;
+    top: 158px;
 }
 
 .results-title {

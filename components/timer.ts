@@ -1,15 +1,14 @@
-export let timer = function getTimer() {
-    let sec: number = 0
-    let min: number = 0
-    setTimeout(() => {
-        setInterval(() => {
-            sec++
-            if (sec === 60) {
-                min++
-                sec = 0
-            }
-            console.log(`${min}:${sec}`)
-        }, 1000)
-    }, 5000)
-}
+// export function counterTime(min:number, sec:number, minute:number, second:number,time:number) {
+//     let startTimer = setInterval(() => {
+//         sec++;
+//         if (sec === 60) {
+//             min++;
+//             sec = 0;
+//         }
+//         second.innerText = sec < 10 ? "0" + sec : sec;
+//         minute.innerText = min < 10 ? "0" + min : min;
+//         return time = `${min}:${sec}`;
+//     }, 1000);
 
+//     return startTimer;
+// }

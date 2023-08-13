@@ -23,13 +23,18 @@ ${
 if(modalEl){
 modalEl.innerHTML=modalHTML
 }
+
 const buttonGame=document.getElementById('button-result')
 if (buttonGame) {
     buttonGame.addEventListener('click', () => {
-        gameComplexity()
+        if(modalEl){
+            modalEl.style.display = 'none'
+        }
+        gameComplexity()    
     })
+
 }
 if(cardsHeader){
-cardsHeader.style.opacity=".3"
+    cardsHeader.style.opacity = ".3";
 }
 }
