@@ -32,9 +32,11 @@ if (buttonGame) {
         }
         gameComplexity()    
     })
-
+   
 }
+cardsHeader =document.querySelector('.card-game')
 if(cardsHeader){
+    
     cardsHeader.style.opacity = ".3";
 }
 }

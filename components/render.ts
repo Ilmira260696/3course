@@ -97,7 +97,7 @@ export function renderGame(level: number) {
         }
     }
     const cardsHeader: HTMLElement | null =
-            document.getElementById('.card-game')
+            document.querySelector('.card-game')
             
     setTimeout(showCard, 5000)
     function compareCard(firstCard: number, secondCard: number) {
