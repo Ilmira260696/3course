@@ -3,14 +3,20 @@ import { coverCard } from './cards'
 import { isPlaying } from './isPlaying'
 import { gameComplexity } from '../index'
 import { resultGame } from './resultGame'
-// import { counterTime } from './timer'
+import { timer } from './timer'
 
 export function renderGame(level: number) {
    
    
-    let min = "00";
-    let sec = "00";
-    let id;
+    const min: number = 0
+    const sec: number = 0
+    let currentDate: Date
+    let combDate: string
+    // let id;
+    function getCurrentDate() {
+        return (currentDate = new Date())
+    }
+    let id: NodeJS.Timer
     
 
     // let levelGame = level.value
@@ -26,14 +32,10 @@ export function renderGame(level: number) {
     isPlaying(sortCardArray)
 
 
-    // const minute = document.getElementById("min");
-    // console.log(minute);
-    // const second = document.getElementById("sec");
-    // console.log(second);
-
-    // setTimeout(() => {
-    //     id = counterTime(min, sec, minute, second);
-    // }, 5000);
+    setTimeout(() => {
+        id = timer (min, sec)
+        getCurrentDate()
+    }, 5000)
 
     let modalEl=document.getElementById('modal')
     let clickable: boolean = true
@@ -104,15 +106,14 @@ export function renderGame(level: number) {
         if(game===0){
             (modalEl as HTMLElement).style.display = 'block'
           resultGame(game,cardsHeader)
+          clearInterval(id)
         }
         else{showCard()}
         } else {
             backSide = sortCoverCard;
             (modalEl as HTMLElement).style.display = 'block'
             resultGame(game, cardsHeader)
-            // if(cardsHeader){
-            //     cardsHeader.style.opacity = ".3";
-            // }
+            clearInterval(id)
             clickable = false
         
     }

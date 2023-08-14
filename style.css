@@ -200,3 +200,11 @@ body {
     color: #000;
     margin-bottom: 40px;
 }
+
+.timer-counter {
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 72px;
+    text-align: left;
+    color: #fff;
+}

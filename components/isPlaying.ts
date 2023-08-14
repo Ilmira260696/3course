@@ -7,7 +7,10 @@ export function isPlaying(backSide:string[]) {
     <p class="duration">min</p>
     <p class="duration">sek</p>
     </div>
-    <time class="time">00.00</time>
+    <div class="timer-counter">
+    <span  id="min">00</span>
+     <span  id="sec">00</span>
+    </div>
     </div>
     <button class="button-two" id="submit-button" type="submit" >Начать заново</button>
 </header>
