@@ -40,7 +40,7 @@ export function renderGame(level: number) {
     let firstCard: number
     let secondCard: number
     let game: number = level
-    let winGame: boolean = false;
+    // let winGame: boolean = false;
     function showCard() {
         isPlaying(backSide)
         const buttonOverGame = document.getElementById('submit-button')
@@ -54,10 +54,6 @@ export function renderGame(level: number) {
         const approach = document.getElementById('approach')
         if (approach) {
             let itemCards = approach.children
-            
-           
-       
-
             const itemCardsArray = Array.from(itemCards)
             // let modalEl=document.getElementById('modal')
             for (const itemCard of itemCardsArray) {
@@ -65,9 +61,9 @@ export function renderGame(level: number) {
                     let cardIndex = Number(
                         (itemCard as HTMLElement).dataset.index,
                     )
-                    if (clickable) {
+                    if (clickable && cardIndex) {
                         firstCard = cardIndex
-                        // game = --game
+                        game = --game
                         backSide[cardIndex] = sortCardArray[cardIndex]
                        
                         isPlaying(backSide)
@@ -75,19 +71,21 @@ export function renderGame(level: number) {
                         
                     } else {
                         secondCard = cardIndex
-                        // game = --game
+                        game = --game
                         backSide[cardIndex] = sortCardArray[cardIndex]
-                        compareCard(firstCard, secondCard)
                         isPlaying(backSide)
                         showCard()
-                        game=game-2
-                        if(game===0){
-                            winGame = !winGame;
-                            if(cardsHeader){
-                                cardsHeader.style.opacity = ".3";
-                            } 
-                            resultGame(game, cardsHeader)
-                        }
+                        compareCard(firstCard, secondCard)
+                        
+                       
+                        // game=game-2
+                        // if(game===0){
+                        //     winGame = !winGame;
+                        //     if(cardsHeader){
+                        //         cardsHeader.style.opacity = ".3";
+                        //     } 
+                        //     resultGame(game, cardsHeader)
+                        // }
                        
                     }
                     
