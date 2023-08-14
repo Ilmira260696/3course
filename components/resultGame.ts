@@ -1,6 +1,27 @@
 import { gameComplexity } from '../index'
-export function resultGame(game:number, cardsHeader:HTMLElement|null) {
+export function resultGame(game:number, cardsHeader:HTMLElement|null,currentDate: Date,combDate:string) {
+    const minutModal: number = 0;
+    const secondModal: number = 0;
    let modalEl=document.getElementById('modal')
+   function getTimeModalWindow(minutModal: number, secondModal: number) {
+    const endDate = new Date();
+    const diffDate = endDate.getTime() - currentDate.getTime();
+
+    minutModal = Math.floor(diffDate / 60000);
+    secondModal = Math.floor((diffDate % 60000) / 1000);
+
+    combDate = `${
+        minutModal < 10
+            ? "0" + minutModal.toString()
+            : minutModal.toString()
+    }:${
+        secondModal < 10
+            ? "0" + secondModal.toString()
+            : secondModal.toString()
+    }`;
+    return combDate;
+}
+getTimeModalWindow(minutModal, secondModal);
     const modalHTML = `
 <div class="modal center">
 <div class="results center">
@@ -15,7 +36,7 @@ ${
     game===0 ? 'Вы выиграли!' : 'Вы проиграли'
 }</h2>
 <p class="results-time">Затраченное время</p>
-<div class="results-time-timer">01.20</div>
+<div class="results-time-timer">${combDate}</div>
 <button class="button-two" id = "button-result" type="submit">Играть снова</button>
 </div>
 </div>

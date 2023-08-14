@@ -8,7 +8,7 @@ export function isPlaying(backSide:string[]) {
     <p class="duration">sek</p>
     </div>
     <div class="timer-counter">
-    <span  id="min">00</span>
+     <span  id="min">00</span>
      <span  id="sec">00</span>
     </div>
     </div>

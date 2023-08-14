@@ -6,8 +6,6 @@ import { resultGame } from './resultGame'
 import { timer } from './timer'
 
 export function renderGame(level: number) {
-   
-   
     const min: number = 0
     const sec: number = 0
     let currentDate: Date
@@ -18,8 +16,6 @@ export function renderGame(level: number) {
     }
     let id: NodeJS.Timer
     
-
-    // let levelGame = level.value
     let sortCardArray = cards
         .sort(() => Math.random() - 0.5)
         .slice(0, level / 2)
@@ -44,16 +40,20 @@ export function renderGame(level: number) {
     let game: number = level
     // let winGame: boolean = false;
     function showCard() {
-        isPlaying(backSide)
+        // isPlaying(backSide)
+    
+        const approach = document.getElementById('approach')
+        if (approach) {
+            approach.innerHTML = `${backSide.join('')}`;
+        }
         const buttonOverGame = document.getElementById('submit-button')
         
         if (buttonOverGame) {
             buttonOverGame.addEventListener('click', () => {
-                
                 gameComplexity()
             })
         }
-        const approach = document.getElementById('approach')
+        // const approach = document.getElementById('approach')
         if (approach) {
             let itemCards = approach.children
             const itemCardsArray = Array.from(itemCards)
@@ -63,7 +63,7 @@ export function renderGame(level: number) {
                     let cardIndex = Number(
                         (itemCard as HTMLElement).dataset.index,
                     )
-                    if (clickable && cardIndex) {
+                    if (clickable) {
                         firstCard = cardIndex
                         game = --game
                         backSide[cardIndex] = sortCardArray[cardIndex]
@@ -78,8 +78,6 @@ export function renderGame(level: number) {
                         isPlaying(backSide)
                         showCard()
                         compareCard(firstCard, secondCard)
-                        
-                       
                         // game=game-2
                         // if(game===0){
                         //     winGame = !winGame;
@@ -105,16 +103,17 @@ export function renderGame(level: number) {
             backSide[secondCard]=sortCardArray[secondCard]
         if(game===0){
             (modalEl as HTMLElement).style.display = 'block'
-          resultGame(game,cardsHeader)
+          resultGame(game,cardsHeader,currentDate,combDate)
           clearInterval(id)
         }
         else{showCard()}
         } else {
             backSide = sortCoverCard;
             (modalEl as HTMLElement).style.display = 'block'
-            resultGame(game, cardsHeader)
-            clearInterval(id)
             clickable = false
+            resultGame(game, cardsHeader, currentDate,combDate)
+            clearInterval(id)
+            
         
     }
 }

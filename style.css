@@ -26,7 +26,7 @@ body {
 }
 
 .content {
-    padding-top: 158px;
+   padding-top: 148px;
 }
 
 .top-content {
@@ -162,7 +162,7 @@ body {
 
 .modal {
     position: absolute;
-    top: 230px;
+    top: 158px;
 }
 
 .results-title {
