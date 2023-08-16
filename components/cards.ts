@@ -47,7 +47,7 @@ export const cards = [
 const coverCard: string[] = []
 for (let index = 0; index < 36; index++) {
     coverCard.push(
-        `<img src="./static/img/рубашка.png" class="cover-card" data-index="${index}">`,
+        `<img src="./static/img/рубашка.png" class="cover-card close" data-index="${index}">`,
     )
 }
 export { coverCard }

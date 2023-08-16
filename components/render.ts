@@ -44,6 +44,7 @@ export function renderGame(level: number) {
         const approach = document.getElementById('approach')
         if (approach) {
             approach.innerHTML = `${backSide.join('')}`
+           
         }
         const buttonOverGame = document.getElementById('submit-button')
 
@@ -53,8 +54,14 @@ export function renderGame(level: number) {
             })
         }
         // const approach = document.getElementById('approach')
+        // let itemCards = document.querySelectorAll(
+        //     ".close",
+        // );
         if (approach) {
-            let itemCards = approach.children
+            let itemCards = document.querySelectorAll(
+                ".close",
+            );
+    
             const itemCardsArray = Array.from(itemCards)
             // let modalEl=document.getElementById('modal')
             for (const itemCard of itemCardsArray) {
