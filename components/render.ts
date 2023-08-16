@@ -53,10 +53,8 @@ export function renderGame(level: number) {
                 gameComplexity()
             })
         }
-        // const approach = document.getElementById('approach')
-        // let itemCards = document.querySelectorAll(
-        //     ".close",
-        // );
+   
+        
         if (approach) {
             let itemCards = document.querySelectorAll(
                 ".close",
@@ -73,14 +71,21 @@ export function renderGame(level: number) {
                         firstCard = cardIndex
                         game = --game
                         backSide[cardIndex] = sortCardArray[cardIndex]
-
-                        isPlaying(backSide)
+                        if (approach) {
+                            approach.innerHTML = `${backSide.join('')}`
+                           
+                        }
+                        // isPlaying(backSide)
                         showCard()
                     } else {
                         secondCard = cardIndex
                         game = --game
                         backSide[cardIndex] = sortCardArray[cardIndex]
-                        isPlaying(backSide)
+                        if (approach) {
+                            approach.innerHTML = `${backSide.join('')}`
+                           
+                        }
+                        // isPlaying(backSide)
                         showCard()
                         compareCard(firstCard, secondCard)
                         // game=game-2
