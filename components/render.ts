@@ -88,14 +88,7 @@ export function renderGame(level: number) {
                         // isPlaying(backSide)
                         showCard()
                         compareCard(firstCard, secondCard)
-                        // game=game-2
-                        // if(game===0){
-                        //     winGame = !winGame;
-                        //     if(cardsHeader){
-                        //         cardsHeader.style.opacity = ".3";
-                        //     }
-                        //     resultGame(game, cardsHeader)
-                        // }
+                       
                     }
 
                     clickable = !clickable
