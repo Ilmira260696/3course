@@ -10,7 +10,6 @@ export function renderGame(level: number) {
     const sec: number = 0
     let currentDate: Date
     let combDate: string
-    // let id;
     function getCurrentDate() {
         return (currentDate = new Date())
     }
@@ -39,7 +38,7 @@ export function renderGame(level: number) {
     let game: number = level
 
     function showCard() {
-        isPlaying(backSide)
+        // isPlaying(backSide)
 
         const approach = document.getElementById('approach')
         if (approach) {
@@ -61,7 +60,6 @@ export function renderGame(level: number) {
             );
     
             const itemCardsArray = Array.from(itemCards)
-            // let modalEl=document.getElementById('modal')
             for (const itemCard of itemCardsArray) {
                 itemCard.addEventListener('click', () => {
                     let cardIndex = Number(
