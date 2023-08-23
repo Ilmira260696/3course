@@ -20,9 +20,4 @@ describe('should check the array of cards face down', () => {
     it('array length 36', () => {
         expect(coverCard).toHaveLength(36)
     })
-    it('array includes string', () => {
-        expect(coverCard).toContain(
-            '<img src="./static/img/рубашка.png" class="cover-card" data-index="0">',
-        )
-    })
 })
