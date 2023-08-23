@@ -1,5 +1,5 @@
 export function isPlaying(backSide: string[]) {
-    let appEl = document.getElementById('app')
+    const appEl = document.getElementById('app')
     const appHtml = `<div class="card-game">
     <header class="card-game-timer">
     <div class="top">

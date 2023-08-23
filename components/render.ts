@@ -21,7 +21,7 @@ export function renderGame(level: number) {
     sortCardArray = sortCardArray
         .concat(sortCardArray)
         .sort(() => Math.random() - 0.5)
-    let sortCoverCard = coverCard.slice(0, level)
+    const sortCoverCard = coverCard.slice(0, level)
     let backSide: string[] = []
     backSide = sortCoverCard
     isPlaying(sortCardArray)
@@ -31,7 +31,7 @@ export function renderGame(level: number) {
         getCurrentDate()
     }, 5000)
 
-    let modalEl = document.getElementById('modal')
+    const modalEl = document.getElementById('modal')
     let clickable: boolean = true
     let firstCard: number
     let secondCard: number
@@ -43,7 +43,6 @@ export function renderGame(level: number) {
         const approach = document.getElementById('approach')
         if (approach) {
             approach.innerHTML = `${backSide.join('')}`
-           
         }
         const buttonOverGame = document.getElementById('submit-button')
 
@@ -52,17 +51,14 @@ export function renderGame(level: number) {
                 gameComplexity()
             })
         }
-   
-        
+
         if (approach) {
-            let itemCards = document.querySelectorAll(
-                ".close",
-            );
-    
+            const itemCards = document.querySelectorAll(`.close`)
+
             const itemCardsArray = Array.from(itemCards)
             for (const itemCard of itemCardsArray) {
                 itemCard.addEventListener('click', () => {
-                    let cardIndex = Number(
+                    const cardIndex = Number(
                         (itemCard as HTMLElement).dataset.index,
                     )
                     if (clickable) {
@@ -71,7 +67,6 @@ export function renderGame(level: number) {
                         backSide[cardIndex] = sortCardArray[cardIndex]
                         if (approach) {
                             approach.innerHTML = `${backSide.join('')}`
-                           
                         }
                         // isPlaying(backSide)
                         showCard()
@@ -81,12 +76,10 @@ export function renderGame(level: number) {
                         backSide[cardIndex] = sortCardArray[cardIndex]
                         if (approach) {
                             approach.innerHTML = `${backSide.join('')}`
-                           
                         }
                         // isPlaying(backSide)
                         showCard()
                         compareCard(firstCard, secondCard)
-                       
                     }
 
                     clickable = !clickable

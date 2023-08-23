@@ -7,7 +7,7 @@ export function resultGame(
 ) {
     const minutModal: number = 0
     const secondModal: number = 0
-    let modalEl = document.getElementById('modal')
+    const modalEl = document.getElementById('modal')
     function getTimeModalWindow(minutModal: number, secondModal: number) {
         const endDate = new Date()
         const diffDate = endDate.getTime() - currentDate.getTime()

@@ -1,7 +1,7 @@
 import './style.css'
 import { renderGame } from './components/render'
 export function gameComplexity() {
-    let appEl = document.getElementById('app')
+    const appEl = document.getElementById('app')
 
     const appHtml = `
 <div class="content center">
@@ -30,13 +30,13 @@ export function gameComplexity() {
             form.addEventListener('submit', (a) => {
                 a.preventDefault()
 
-                let levelsPoints = document.querySelectorAll(
+                const levelsPoints = document.querySelectorAll(
                     '.radio-toolbar-radio',
                 )
                 const levelsPointsArray = Array.from(levelsPoints)
-                for (let levelsPoints of levelsPointsArray) {
+                for (const levelsPoints of levelsPointsArray) {
                     if ((levelsPoints as HTMLInputElement).checked) {
-                        let level: number = Number(
+                        const level: number = Number(
                             (levelsPoints as HTMLInputElement).value,
                         )
                         renderGame(level)

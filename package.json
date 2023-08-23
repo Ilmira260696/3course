@@ -9,10 +9,11 @@
         "build": "SET NODE_ENV='production' && webpack",
         "start": "webpack-dev-server --open",
         "format": "prettier --write ./",
-        "lint:js": "eslint ./**/*.js",
+        "lint:js": "eslint ./**/*.ts",
         "lint:css": "stylelint ./**/*.css",
-        "lint": "npm run lint:js && npm run lint:css",
-        "prepare": "husky install"
+        "lint": "npm run lint:js && npm run lint:css && npm run lint:ts",
+        "prepare": "husky install",
+        "lint:ts": "tsc --noEmit"
     },
     "repository": {
         "type": "git",
@@ -46,6 +47,7 @@
         "stylelint": "^15.10.2",
         "stylelint-config-standard": "^34.0.0",
         "stylelint-prettier": "^4.0.2",
+        "ts-jest": "^29.1.1",
         "ts-loader": "^9.4.4",
         "typescript": "^5.1.6",
         "webpack-cli": "^5.1.4",
